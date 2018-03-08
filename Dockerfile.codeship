@@ -1,0 +1,12 @@
+# This assumes you have followed the instructions and have a prepared plugins dir. Can use this to prepare an image for codeship. 
+FROM openjdk:8-jdk
+RUN mkdir /app 
+
+# put the plugins in a tmp dir and copy them over (make sure you have run jenkins to set it up)
+COPY tmp/jenkins_home/plugins /app/plugins
+
+# copy the unzipped jenkins in place from the local tmp dir (unzip the jenkins war into the tmp dir)
+COPY tmp/jenkins /app/jenkins
+
+# copy the artifacts in place (assuming you have run mvn package)
+COPY app/target/appassembler /app 

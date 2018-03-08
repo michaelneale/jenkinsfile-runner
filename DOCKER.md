@@ -8,7 +8,7 @@ First, follow [the preparation step in main README](README.md#preparation) and c
 Then build the Jenkinsfile Runner image like this:
 
 ```
-docker build -t jenkinsfile-runner:my-production-jenkins --build-arg JENKINS_VERSION=2.108 .
+docker build -t jenkinsfile-runner:my-production-jenkins --build-arg JENKINS_VERSION=2.89.4 .
 ```
 
 The optional `JENKINS_VERSION` specifies the version of Jenkins core.
@@ -19,4 +19,3 @@ Run the image by mounting the directory that contains `Jenkinsfile` into `/works
 ```
 docker run -v~/foo:/workspace jenkinsfile-runner:my-production-jenkins
 ```
-
